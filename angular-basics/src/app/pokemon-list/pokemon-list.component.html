@@ -1,19 +1,11 @@
-
-
-<hr />
-<p>Desplegable que refresca la lista cuando pulso en el botón Filtrar</p>
-
 <mat-form-field appearance="fill">
     <mat-label>Elementos por página</mat-label>
     <mat-select [(ngModel)]="pokemonName" (selectionChange)="getPokemonList()">
-        <mat-option value="{{pokemonName}}" *ngFor="let pokemon of pokemonList; let i = index">
+        <mat-option value="{{pokemon.name}}" *ngFor="let pokemon of pokemonList; let i = index">
             {{i}}: {{pokemon.name}}
         </mat-option>
     </mat-select>
 </mat-form-field>
-
-
-
 <p>Has seleccionado... {{pokemonName}}</p>
 
 <hr />
