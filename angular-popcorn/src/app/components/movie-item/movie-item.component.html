@@ -1,7 +1,17 @@
 
 <mat-card>
-    <mat-card-content (click)="openMovieDetailDialog()">
+    <div>
         <img [src]="getMovieImageUrl(movieInput)" height="200px" width="100%" />
-        <h3>{{movieInput.title}}</h3>
-    </mat-card-content>
+    </div>
+    <div class="circulo">
+        <circle-progress [percent]="movieInput.vote_average *10"></circle-progress>
+        </div>
+        <h3><b>{{movieInput.title}}</b></h3>
+        <p>{{movieInput.overview}}</p>
+    <div class="contenedor1">
+        <mat-button-toggle><mat-icon>playlist_add</mat-icon></mat-button-toggle>
+        <mat-button-toggle><mat-icon>favorite_border</mat-icon></mat-button-toggle>
+        
+    </div>
 </mat-card>
+

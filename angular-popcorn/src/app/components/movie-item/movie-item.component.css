@@ -1,3 +1,27 @@
 img {
     object-fit: cover;
 }
+
+h3 {
+    white-space: nowrap; 
+    width: 250px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+p {
+    white-space: nowrap; 
+    width: 250px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+  .contenedor1 {
+      margin-left:200px;
+  }
+
+  .circulo {
+    position:absolute;
+    margin-top:-200px;
+    
+  }

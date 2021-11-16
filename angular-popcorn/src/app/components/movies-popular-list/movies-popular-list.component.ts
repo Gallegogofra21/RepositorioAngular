@@ -9,7 +9,6 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class MoviesPopularListComponent implements OnInit {
   popularMovies: Movie[] = [];
-  moviesNumberSelected = '50';
 
   constructor(private moviesService: MoviesService) { }
 
@@ -17,14 +16,6 @@ export class MoviesPopularListComponent implements OnInit {
     this.moviesService.getPopularMovies().subscribe(popularMoviesResponse => {
       this.popularMovies = popularMoviesResponse.results;
     });
-
-  }
-
-  getMoviesPopularList(){
-    this.moviesService.getMoviesPopularList(parseInt(this.moviesNumberSelected)).subscribe( resultado => {
-      this.popularMovies = resultado.results;
-      console.log(resultado);
-    })
   }
 
 }

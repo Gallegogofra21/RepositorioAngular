@@ -9,24 +9,35 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialImportsModule } from './modules/material-imports.module';
 import { MoviesPopularListComponent } from './components/movies-popular-list/movies-popular-list.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
-import { DialogMovieDetailComponent } from './dialog/dialog-movie-detail/dialog-movie-detail.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesPopularListComponent,
-    MovieItemComponent,
-    DialogMovieDetailComponent
+    MovieItemComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,      
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialImportsModule,
-    HttpClientModule
-  ],
-  entryComponents: [
-    DialogMovieDetailComponent
+    HttpClientModule,
+    FlexLayoutModule,
+    NgCircleProgressModule.forRoot({
+      "backgroundGradient": true,
+      "backgroundPadding": -47,
+      "radius": 34,
+      "unitsColor": "#ffffff",
+      "titleColor": "#ffffff",
+      "subtitleColor": "#ffffff",
+      "imageHeight": 27,
+      "imageWidth": 32})
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
