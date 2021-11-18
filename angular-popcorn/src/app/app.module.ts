@@ -11,33 +11,43 @@ import { MoviesPopularListComponent } from './components/movies-popular-list/mov
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
-
+import { DialogMovieAddComponent } from './dialogs/dialog-movie-add/dialog-movie-add.component';
+import { ListaItemComponent } from './components/lista-item/lista-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesPopularListComponent,
-    MovieItemComponent
+    MovieItemComponent,
+    DialogMovieAddComponent,
+    ListaItemComponent
   ],
   imports: [
-    BrowserModule,      
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialImportsModule,
     HttpClientModule,
     FlexLayoutModule,
     NgCircleProgressModule.forRoot({
-      "backgroundGradient": true,
-      "backgroundPadding": -47,
-      "radius": 34,
-      "unitsColor": "#ffffff",
-      "titleColor": "#ffffff",
-      "subtitleColor": "#ffffff",
-      "imageHeight": 27,
-      "imageWidth": 32})
-    
+      "radius": 25,
+      "outerStrokeGradient": true,
+      "outerStrokeWidth": 5,
+      "outerStrokeColor": "#4882c2",
+      "outerStrokeGradientStopColor": "#53a9ff",
+      "innerStrokeWidth": 0,
+      "title": "Rate",
+      "titleColor": "#FFFFFF",
+      "titleFontSize": "15",
+      "titleFontWeight": "bold",
+      "showSubtitle": false,
+      "animateTitle": true,
+      "animationDuration": 1000,
+      "showUnits": false,
+      "showBackground": true,
+      "backgroundColor": "#000000"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

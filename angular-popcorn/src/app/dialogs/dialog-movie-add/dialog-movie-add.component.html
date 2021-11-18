@@ -1,0 +1,10 @@
+
+<h3>Añadir <b>{{movieResponse?.title}}</b> a la lista:</h3>
+<mat-form-field appearance="fill">
+    <mat-label>Listas</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let lista of listas" [value]="lista.id">
+        {{lista?.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
