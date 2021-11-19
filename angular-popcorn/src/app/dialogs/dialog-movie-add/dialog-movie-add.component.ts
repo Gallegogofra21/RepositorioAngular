@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { Lista } from 'src/app/models/interfaces/listas.interface';
+import { Lista, ListaResponse } from 'src/app/models/interfaces/listas.interface';
 import { Movie, MoviesPopularResponse, MoviesResponse } from 'src/app/models/interfaces/movies-popular.interface';
 import { ListaServiceService } from 'src/app/services/lista-service.service';
 import { MoviesService } from 'src/app/services/movies.service';
@@ -18,7 +18,7 @@ export interface DialogMovieData{
 export class DialogMovieAddComponent implements OnInit {
   movieResponse!: MoviesResponse;
   idLista!: number;
-  lista!: Lista;
+  lista!: ListaResponse;
   listas!: Lista[];
   
 
@@ -26,6 +26,7 @@ export class DialogMovieAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovieId();
+    this.getLista();
   }
 
   getMovieId(){
@@ -36,8 +37,14 @@ export class DialogMovieAddComponent implements OnInit {
 
   getLista() {
     this.listaService.getLista().subscribe( result =>{
-      this.lista = result.results;
+      this.listas = result.results;
       console.log(result);
+    });
+  }
+
+  onSubmit() {
+    this.movieService.addToList(this.idLista,this.data.movieId).subscribe(res => {
+
     });
   }
 
