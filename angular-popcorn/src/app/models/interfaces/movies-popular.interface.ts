@@ -74,3 +74,15 @@ export interface MoviesResponse {
     vote_average: number;
     vote_count: number;
 }
+
+export class MovieDtoFav {
+    media_type: string = "movie";
+    media_id!: number;
+    favorite: boolean = true;
+}
+
+export interface MovieDtoResponse {
+    success: boolean;
+    status_code: number;
+    status_message: string;
+}

@@ -1,8 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
-import { Lista, ListaResponse } from 'src/app/models/interfaces/listas.interface';
-import { Movie, MoviesPopularResponse, MoviesResponse } from 'src/app/models/interfaces/movies-popular.interface';
+import { Lista, ListaDto, ListaResponse } from 'src/app/models/interfaces/listas.interface';
+import { MoviesResponse } from 'src/app/models/interfaces/movies-popular.interface';
 import { ListaServiceService } from 'src/app/services/lista-service.service';
 import { MoviesService } from 'src/app/services/movies.service';
 
@@ -20,6 +19,8 @@ export class DialogMovieAddComponent implements OnInit {
   idLista!: number;
   lista!: ListaResponse;
   listas!: Lista[];
+  selectedListId!: string;
+  newLista = new ListaDto();
   
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: DialogMovieData, private movieService: MoviesService, private listaService: ListaServiceService) { }
@@ -43,8 +44,16 @@ export class DialogMovieAddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.movieService.addToList(this.idLista,this.data.movieId).subscribe(res => {
+    this.movieService.addToList(this.selectedListId,this.data.movieId).subscribe(res => {
+      window.location.reload();
+    });
+  }
 
+  onSubmit2(){
+    this.listaService.createList(this.newLista, this.data.movieId).subscribe(res => {
+      this.listaService.addToList(res.list_id, this.data.movieId).subscribe(resp => {
+        window.location.reload();
+      });
     });
   }
 

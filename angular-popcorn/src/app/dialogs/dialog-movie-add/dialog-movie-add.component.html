@@ -1,10 +1,21 @@
+<div class="contenedor1">
+  <h3>Añadir <b>{{movieResponse?.title}}</b> a la lista:</h3>
+  <mat-form-field appearance="fill">
+      <mat-label>Listas</mat-label>
+      <mat-select [(ngModel)]="selectedListId">
+        <mat-option *ngFor="let lista of listas" [value]="lista.id" type="submit" (click)="onSubmit()" >
+          {{lista?.name}} {{lista?.item_count}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
 
-<h3>Añadir <b>{{movieResponse?.title}}</b> a la lista:</h3>
-<mat-form-field appearance="fill">
-    <mat-label>Listas</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let lista of listas" [value]="lista.id" type="submit" (click)="onSubmit()" >
-        {{lista?.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<div class="contenedor2">
+  <h3>Crear nueva lista: </h3>
+  <mat-label for="name">Nombre</mat-label>
+  <input matInput type="text" placeholder="Nombre de la lista" id="name" [(ngModel)]="newLista.name" name="name">
+  <mat-label for="description">Descripción</mat-label>
+  <input matInput type="text" placeholder="Descripción de la lista" id="description" [(ngModel)]="newLista.description" name="description">
+  <br>
+<button mat-button (click)="onSubmit2()" type="submit">Añadir</button>
+</div>

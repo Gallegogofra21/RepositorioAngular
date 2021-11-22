@@ -1,0 +1,14 @@
+.contenedor1 {
+    float: left;
+    width: 400px;
+}
+
+.contenedor2 {
+    float: right;
+    width: 300px;
+}
+
+button {
+    margin-top: 50px;
+    margin-left: 50px;
+}

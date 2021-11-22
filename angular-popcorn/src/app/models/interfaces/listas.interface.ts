@@ -15,3 +15,16 @@ export interface ListaResponse {
     total_pages: number;
     total_results: number;
 }
+
+export class ListaDto {
+    name!: string;
+    description!: string;
+    language: string = "es-ES"
+}
+
+export interface ListaDtoResponse {
+    status_code: number;
+    status_message: string;
+    success: boolean;
+    list_id: number;
+}

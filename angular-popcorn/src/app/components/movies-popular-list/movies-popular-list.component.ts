@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie, MoviesPopularResponse } from 'src/app/models/interfaces/movies-popular.interface';
+import { Movie } from 'src/app/models/interfaces/movies-popular.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { MoviesService } from 'src/app/services/movies.service';
 
@@ -21,5 +21,4 @@ export class MoviesPopularListComponent implements OnInit {
       this.popularMovies = popularMoviesResponse.results;
     });
   }
-
 }

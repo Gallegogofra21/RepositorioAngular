@@ -13,6 +13,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { DialogMovieAddComponent } from './dialogs/dialog-movie-add/dialog-movie-add.component';
 import { ListaItemComponent } from './components/lista-item/lista-item.component';
+import { DialogLoginComponentComponent } from './dialogs/dialog-login-component/dialog-login-component.component';
+import { SessionComponent } from './shared/session/session.component';
+import { FormsModule } from '@angular/forms';
+import { MoviesFavListComponent } from './components/movies-fav-list/movies-fav-list.component';
+import { SideMenuComponent } from './shared/side-menu/side-menu.component';
+import { PlaylistComponent } from './components/playlist/playlist.component';
+
 
 
 @NgModule({
@@ -21,7 +28,12 @@ import { ListaItemComponent } from './components/lista-item/lista-item.component
     MoviesPopularListComponent,
     MovieItemComponent,
     DialogMovieAddComponent,
-    ListaItemComponent
+    ListaItemComponent,
+    DialogLoginComponentComponent,
+    SessionComponent,
+    MoviesFavListComponent,
+    SideMenuComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +42,7 @@ import { ListaItemComponent } from './components/lista-item/lista-item.component
     MaterialImportsModule,
     HttpClientModule,
     FlexLayoutModule,
+    FormsModule,
     NgCircleProgressModule.forRoot({
       "radius": 25,
       "outerStrokeGradient": true,
