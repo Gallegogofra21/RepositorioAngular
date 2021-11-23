@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { GenreResponse } from '../models/interfaces/generos.interface';
 import { Lista } from '../models/interfaces/listas.interface';
 import { Movie, MovieDtoFav, MovieDtoResponse, MoviesPopularResponse, MoviesResponse } from '../models/interfaces/movies-popular.interface';
 
@@ -41,6 +42,10 @@ export class MoviesService {
 
   getFavoritesMovies(): Observable<MoviesPopularResponse> {
     return this.http.get<MoviesPopularResponse>(`${environment.apiBaseUrl}/account/${environment.account_id}/favorite/movies?api_key=${environment.apiKey}&language=${environment.defaultLang}&sort_by=created_at.asc&page=1&session_id=${localStorage.getItem('session_id')}`)
+  }
+
+  getGenres(): Observable<GenreResponse>{
+    return this.http.get<GenreResponse>(`${environment.apiBaseUrl}/genre/movie/list?api_key=${environment.apiKey}&language=${environment.defaultLang}`)
   }
 
 }
