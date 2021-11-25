@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthLoginDto } from '../models/dto/auth.dto';
 import { AuthLoginResponse } from '../models/interfaces/auth.interface';
+import { RegisterResponse } from '../models/interfaces/register.interface';
 
 const AUTH_BASE_URL = 'auth';
 const DEFAULT_HEADERS = {
@@ -27,5 +28,14 @@ export class AuthService {
 
   forgot() {
     let requestUrl = `${this.authBaseUrl}/forgot`;    
+  }
+
+  register(register: RegisterResponse): Observable<RegisterResponse> {
+    let requestUrl = `${this.authBaseUrl}/signup`;
+    return this.http.post<RegisterResponse>(requestUrl, register, DEFAULT_HEADERS);
+  }
+
+  setLocalRequestToken(token: string) {
+    localStorage.setItem('request_token', token);
   }
 }

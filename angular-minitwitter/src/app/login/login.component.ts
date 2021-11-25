@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AuthLoginDto } from '../models/dto/auth.dto';
 import { AuthService } from '../services/auth.service';
 
@@ -9,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginDto = new AuthLoginDto();
+
 
   constructor(private authService: AuthService) { }
 
