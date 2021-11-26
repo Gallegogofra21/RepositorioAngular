@@ -1,1 +1,3 @@
-<p>tweets-list works!</p>
+<div class="scroll-container" fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="20px grid" fxFlexFill fxLayoutAlign="start start">
+    <app-tweet-item fxFlex="15" class="movie-item" *ngFor="let tweet of listaTweets" [tweetInput]="tweet"></app-tweet-item>
+</div>

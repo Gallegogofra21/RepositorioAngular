@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Tweet } from '../models/interfaces/tweet.interface';
 import { AuthService } from '../services/auth.service';
 import { TweetsService } from '../services/tweets.service';
@@ -10,14 +10,13 @@ import { TweetsService } from '../services/tweets.service';
 })
 export class TweetsListComponent implements OnInit {
 
-
   listaTweets: Tweet[] = [];
   constructor(private tweetService:TweetsService,
     private authService: AuthService) { }
 
   ngOnInit(): void {
     this.tweetService.getTweets().subscribe(res =>{
-      this.listaTweets = res.result;
+      this.listaTweets = res;
     })
 
   }

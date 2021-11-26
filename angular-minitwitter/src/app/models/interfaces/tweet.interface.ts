@@ -21,4 +21,5 @@ export interface Tweet {
     mensaje: string;
     likes: Like[];
     user: User;
+
 }
