@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Gasolina } from 'src/app/interfaces/gasolina.interface';
+import { listaEESSPrecio } from 'src/app/interfaces/gasolina.interface';
+
 
 @Component({
   selector: 'app-gasolina-item',
@@ -7,7 +8,7 @@ import { Gasolina } from 'src/app/interfaces/gasolina.interface';
   styleUrls: ['./gasolina-item.component.css']
 })
 export class GasolinaItemComponent implements OnInit {
-  @Input() gasolineraInput!: Gasolina;
+  @Input() gasolineraInput!: listaEESSPrecio;
 
   constructor() { }
 

@@ -1,11 +1,11 @@
 export interface GasolinaResponse {
     Fecha: string
-    ListaEESSPrecio: Gasolina[]
+    listaEESSPrecio: listaEESSPrecio[]
     Nota: string
     ResultadoConsulta: string
   }
   
-  export interface Gasolina {
+  export interface listaEESSPrecio {
     cP: string
     direccion: string
     horario: string
