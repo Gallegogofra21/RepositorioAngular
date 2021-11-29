@@ -43,4 +43,8 @@ export class MoviesPopularListComponent implements OnInit {
     this.moviesFilter = this.popularMovies?.filter(movie => movie.genre_ids.includes(this.idGenero));
     console.log(this.idGenero);
   }
+
+  onSubmit() {
+    this.filterMovies();
+  }
 }

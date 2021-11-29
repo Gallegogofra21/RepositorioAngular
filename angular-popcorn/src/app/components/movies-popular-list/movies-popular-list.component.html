@@ -1,7 +1,7 @@
 <mat-form-field appearance="fill">
     <mat-label>Géneros</mat-label>
     <mat-select [(ngModel)]="idGenero" name="genero" > <!-- [formControl]="generos"-->
-      <mat-option *ngFor="let genero of listaGeneros" [value]="genero.id">{{genero?.name}}</mat-option>
+      <mat-option *ngFor="let genero of listaGeneros" [value]="genero.id" (click)="onSubmit()">{{genero?.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 <button mat-button (click)="filterMovies()">Filtrar</button>
