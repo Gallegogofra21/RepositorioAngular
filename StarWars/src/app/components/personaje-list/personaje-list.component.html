@@ -1,0 +1,13 @@
+<mat-form-field>
+    <mat-label>Género</mat-label>
+<mat-select [formControl]="genderFormControl">
+    <mat-option value="male" (click)="doFilter()">Masculino</mat-option>
+    <mat-option value="female" (click)="doFilter()" >Femenino</mat-option>
+    <mat-option value="n/a"(click)="doFilter()">Por determinar</mat-option>
+</mat-select>
+</mat-form-field>
+<!--<button mat-raised-button color="primary" (click)="doFilter()">Filtrar</button>-->
+<ul *ngFor="let people of listaPersonajesFiltrados">
+    <li>{{ people.name }}</li>
+    <img width="74px" [src]="getPhotoUrl(people)">
+</ul>
