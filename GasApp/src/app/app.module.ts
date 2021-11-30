@@ -8,19 +8,26 @@ import { GasolinaItemComponent } from './components/gasolina-item/gasolina-item.
 import { GasolinaListComponent } from './components/gasolina-list/gasolina-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './modules/app-routing.module';
+import { DialogGasolineraDetailComponent } from './components/dialog-gasolinera-detail/dialog-gasolinera-detail.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     GasolinaItemComponent,
-    GasolinaListComponent
+    GasolinaListComponent,
+    DialogGasolineraDetailComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialImportsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LayoutModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

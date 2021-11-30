@@ -1,4 +1,11 @@
-<mat-card>
-    <mat-card-title>{{gasolineraInput?.precioGasoleoA}}</mat-card-title>
-    <mat-card-subtitle>{{gasolineraInput?.listaEESSPrecio}} </mat-card-subtitle>
+<mat-card class="movie-card">
+    <mat-card-content>
+        <h3 class="movie-title">{{gasolineraInput?.municipio}}</h3>
+        <h3 class="movie-subtitle">{{gasolineraInput?.direccion}}</h3>
+        <br>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-raised-button (click)="openDialogDetailsData()">Ver más</button>
+    </mat-card-actions>
 </mat-card>
+

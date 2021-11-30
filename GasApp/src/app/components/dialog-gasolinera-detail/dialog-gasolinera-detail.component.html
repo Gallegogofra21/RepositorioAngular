@@ -1,0 +1,10 @@
+<ng-container *ngIf="gasolinera">
+    <h1 mat-dialog-title>Detalles Gasolinera</h1>
+    <div mat-dialog-content>
+        <h3>Dirección: {{gasolinera?.direccion}}</h3>
+        <h5>Precio Gasóleo A: {{gasolinera?.precioGasoleoA}}</h5>
+        <h5>Precio Gasolina 98 E10: {{gasolinera?.precioGasolina98E10}}</h5>
+        <h5>Precio Gasolina 98 E5: {{gasolinera?.precioGasolina98E5}}</h5>
+        <h5>Municipio: {{gasolinera?.municipio}}</h5>
+    </div>
+</ng-container>

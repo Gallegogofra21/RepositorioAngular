@@ -1,2 +1,11 @@
-<app-gasolina-item *ngFor="let gasolinera of listaGasolineras" [gasolineraInput]="gasolinera"></app-gasolina-item>
+<mat-form-field>
+    <mat-label>Provincia</mat-label>
+<mat-select [(ngModel)]="idProvincia" name="provincia" multiple>
+    <mat-option *ngFor="let provincia of provincias" [value]="provincia.IDPovincia" type="submit">{{provincia.Provincia}}</mat-option>
+</mat-select>
+</mat-form-field>
+<button mat-raised-button (click)="doFilter()">Filtrar</button>
 
+<div class="scroll-container" fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="20px grid" fxFlexFill fxLayoutAlign="start start">
+<app-gasolina-item *ngFor="let gasolinera of listaGasolinerasFiltradas" [gasolineraInput]="gasolinera"></app-gasolina-item>
+</div>

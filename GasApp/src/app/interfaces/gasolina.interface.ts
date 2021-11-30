@@ -20,3 +20,10 @@ export interface GasolinaResponse {
     iDProvincia: string
     iDCCAA: string
   }
+
+  export interface Provincia {
+    IDPovincia: string;
+    IDCCAA: string;
+    Provincia: string;
+    CCAA: string;
+  }
