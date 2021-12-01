@@ -22,6 +22,7 @@ export class GasolinaService {
     jsonStringReplaced = jsonStringReplaced.replace(/Precio Gasolina 98 E10/gi, 'precioGasolina98E10');
     jsonStringReplaced = jsonStringReplaced.replace(/Precio Gasolina 98 E5/gi, 'precioGasolina98E5');
     jsonStringReplaced = jsonStringReplaced.replace(/Municipio/gi, 'municipio');
+    jsonStringReplaced = jsonStringReplaced.replace(/IDProvincia/gi, 'iDProvincia');
     let jsonFinal: GasolinaResponse = JSON.parse(jsonStringReplaced);
     return jsonFinal.listaEESSPrecio;
   }
