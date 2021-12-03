@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gasapp-b20a2": {
+      "hosting": {
+        "FirebaseGasApp": [
+          "gasapp-b20a2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gasapp-b20a2"
+  }
+}
