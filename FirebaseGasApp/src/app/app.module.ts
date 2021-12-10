@@ -19,6 +19,7 @@ import { GasolineraItemComponent } from './components/gasolinera-item/gasolinera
 import { GasolineraListComponent } from './components/gasolinera-list/gasolinera-list.component';
 import { DialogGasolineraDetailComponent } from './components/dialog-gasolinera-detail/dialog-gasolinera-detail.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { GasolineraFavListComponent } from './components/gasolinera-fav-list/gasolinera-fav-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     GasolineraItemComponent,
     GasolineraListComponent,
     DialogGasolineraDetailComponent,
-    ToolbarComponent    
+    ToolbarComponent,
+    GasolineraFavListComponent    
   ],
   imports: [
     BrowserModule,

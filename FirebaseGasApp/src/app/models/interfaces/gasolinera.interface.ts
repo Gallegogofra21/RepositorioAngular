@@ -27,3 +27,11 @@ export interface GasolinaResponse {
     Provincia: string;
     CCAA: string;
   }
+
+  export class GasolineraDtoFav {
+    iDEESS!: string;
+    direccion!: string;
+    municipio!: string;
+    provincia!: string;
+    favorite: boolean = true;
+  }

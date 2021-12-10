@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/models/interfaces/user.interface';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,24 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
 
-  currentPage = 'profile';
-  user!: UserResponse;
+  user!: User;
 
 
-  constructor(private route: ActivatedRoute
-    //private accountService: AccountService,
-    //private authService: AuthService
-    ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.route.url);
-    this.accountService.getUser().subscribe(res => {
-      this.user= res;
-    })
+    
+    }
   }
 
-  logout() {
-    this.authService.logout();
-  }
-
-}

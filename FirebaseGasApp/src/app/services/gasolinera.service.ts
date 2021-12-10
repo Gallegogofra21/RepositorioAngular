@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GasolinaResponse, listaEESSPrecio, Provincia } from '../models/interfaces/gasolinera.interface';
+import { GasolinaResponse, GasolineraDtoFav, listaEESSPrecio, Provincia } from '../models/interfaces/gasolinera.interface';
 
 const API_BASE_URL = '../assets/peticion.json';
 
@@ -24,6 +24,8 @@ export class GasolineraService {
     jsonStringReplaced = jsonStringReplaced.replace(/Precio Gasolina 98 E5/gi, 'precioGasolina98E5');
     jsonStringReplaced = jsonStringReplaced.replace(/Municipio/gi, 'municipio');
     jsonStringReplaced = jsonStringReplaced.replace(/IDProvincia/gi, 'iDProvincia');
+    jsonStringReplaced = jsonStringReplaced.replace(/IDEESS/gi, 'iDEESS');
+    
     let jsonFinal: GasolinaResponse = JSON.parse(jsonStringReplaced);
     return jsonFinal.listaEESSPrecio;
   }
@@ -35,4 +37,5 @@ export class GasolineraService {
   getProvincias(): Observable<Provincia[]>{
     return this.http.get<Provincia[]>(`https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/Listados/Provincias/`)
   }
+
 }

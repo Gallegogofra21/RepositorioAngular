@@ -4,11 +4,15 @@ import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from '../components/login/login.component';
 import { GasolineraListComponent } from '../components/gasolinera-list/gasolinera-list.component';
+import { GasolineraFavListComponent } from '../components/gasolinera-fav-list/gasolinera-fav-list.component';
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: GasolineraListComponent },
-  { path: 'login', pathMatch: 'full', redirectTo: '/login' }
+  { path: '', pathMatch: 'full', redirectTo: 'gasolineras' },
+  { path: 'login', pathMatch: 'full', component: LoginComponent },
+  { path: 'favorites', pathMatch: 'full', component: GasolineraFavListComponent},
+  { path: 'gasolineras', pathMatch: 'full', component: GasolineraListComponent}
+  
 ];
 
 @NgModule({
