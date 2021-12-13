@@ -28,10 +28,9 @@ export interface GasolinaResponse {
     CCAA: string;
   }
 
-  export class GasolineraDtoFav {
-    iDEESS!: string;
-    direccion!: string;
-    municipio!: string;
-    provincia!: string;
-    favorite: boolean = true;
-  }
+  export interface GasolineraFav {
+    direccion: string;
+    id: string;
+    rotulo: string;
+    uid: string;
+}

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { GasolinaResponse, GasolineraDtoFav, listaEESSPrecio, Provincia } from '../models/interfaces/gasolinera.interface';
+import { GasolinaResponse, GasolineraFav, listaEESSPrecio, Provincia } from '../models/interfaces/gasolinera.interface';
 
 const API_BASE_URL = '../assets/peticion.json';
 
@@ -10,7 +11,7 @@ const API_BASE_URL = '../assets/peticion.json';
 })
 export class GasolineraService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private firestore: AngularFirestore) { }
 
   getListGasolineras(): Observable<any>{
     return this.http.get<any>(`${API_BASE_URL}`)
@@ -25,6 +26,7 @@ export class GasolineraService {
     jsonStringReplaced = jsonStringReplaced.replace(/Municipio/gi, 'municipio');
     jsonStringReplaced = jsonStringReplaced.replace(/IDProvincia/gi, 'iDProvincia');
     jsonStringReplaced = jsonStringReplaced.replace(/IDEESS/gi, 'iDEESS');
+    jsonStringReplaced = jsonStringReplaced.replace(/Rótulo/gi, 'rotulo');
     
     let jsonFinal: GasolinaResponse = JSON.parse(jsonStringReplaced);
     return jsonFinal.listaEESSPrecio;

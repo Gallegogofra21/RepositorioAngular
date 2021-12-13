@@ -8,8 +8,8 @@ import { GasolineraFavListComponent } from '../components/gasolinera-fav-list/ga
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'gasolineras' },
-  { path: 'login', pathMatch: 'full', component: LoginComponent },
+  { path: '', pathMatch: 'full', component: LoginComponent },
+  { path: 'login', pathMatch: 'full', redirectTo: '/login'},
   { path: 'favorites', pathMatch: 'full', component: GasolineraFavListComponent},
   { path: 'gasolineras', pathMatch: 'full', component: GasolineraListComponent}
   

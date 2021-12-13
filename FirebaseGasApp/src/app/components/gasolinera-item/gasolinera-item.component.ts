@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
-import { GasolineraDtoFav, listaEESSPrecio } from 'src/app/models/interfaces/gasolinera.interface';
+import { listaEESSPrecio } from 'src/app/models/interfaces/gasolinera.interface';
+import { GasolineraFirebaseService } from 'src/app/services/gasolinera-firebase.service';
+import { GasolineraService } from 'src/app/services/gasolinera.service';
 import { DialogGasolineraDetailComponent } from '../dialog-gasolinera-detail/dialog-gasolinera-detail.component';
 
 const COLLECTION_FAVORITES = 'favorites';
@@ -15,9 +17,10 @@ export class GasolineraItemComponent implements OnInit {
 
   @Input() gasolineraInput!: listaEESSPrecio;
 
-  constructor(private dialog: MatDialog, public auth: AngularFireAuth, private firestore: AngularFirestore) { }
+  constructor(private dialog: MatDialog, public auth: AngularFireAuth, private firestore: AngularFirestore, private gasolinera: GasolineraService, private gasolineraFirebase: GasolineraFirebaseService) { }
 
   ngOnInit(): void {
+    console.log(this.gasolinera);
   }
 
   openDialogDetailsData() {
@@ -28,23 +31,12 @@ export class GasolineraItemComponent implements OnInit {
     })
   }
 
-  addToFav() {
-    this.firestore.collection(COLLECTION_FAVORITES)
-    .add({
-      direccion: this.gasolineraInput.direccion,
-      municipio: this.gasolineraInput.municipio,
-      precioGasoleoA: this.gasolineraInput.precioGasoleoA,
-      precioGasolina98E10: this.gasolineraInput.precioGasolina98E10,
-      precioGasolina98E5: this.gasolineraInput.precioGasolina98E5,
-      id:this.gasolineraInput.iDEESS,
-      uid: localStorage.getItem('uid')});
-      
+  addFavorito() {
+    this.gasolineraFirebase.addFavorite(this.gasolineraInput).then(res => {
+
+    });
   }
 
-  deleteFav() {
-    console.log(this.gasolineraInput.iDEESS);
-    this.firestore.collection(COLLECTION_FAVORITES)
-    .doc().delete();
-  }
+  
 
 }
