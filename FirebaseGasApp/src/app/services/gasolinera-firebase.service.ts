@@ -29,4 +29,6 @@ export class GasolineraFirebaseService {
     let userId = localStorage.getItem('uid');
     return this.firestore.collection(`users/${userId}/favorites`).doc(docId).delete();
   }
+
+  
 }

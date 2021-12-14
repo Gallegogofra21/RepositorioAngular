@@ -20,6 +20,9 @@ import { GasolineraListComponent } from './components/gasolinera-list/gasolinera
 import { DialogGasolineraDetailComponent } from './components/dialog-gasolinera-detail/dialog-gasolinera-detail.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { GasolineraFavListComponent } from './components/gasolinera-fav-list/gasolinera-fav-list.component';
+import { ListaItemComponent } from './components/lista-item/lista-item.component';
+import { ListaListComponent } from './components/lista-list/lista-list.component';
+import { DialogGasolineraAddComponent } from './components/dialog-gasolinera-add/dialog-gasolinera-add.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { GasolineraFavListComponent } from './components/gasolinera-fav-list/gas
     GasolineraListComponent,
     DialogGasolineraDetailComponent,
     ToolbarComponent,
-    GasolineraFavListComponent    
+    GasolineraFavListComponent,
+    ListaItemComponent,
+    ListaListComponent,
+    DialogGasolineraAddComponent    
   ],
   imports: [
     BrowserModule,
