@@ -25,7 +25,8 @@ export class ListaService {
   saveList(title: string, gasolinera: listaEESSPrecio){
     let userId = localStorage.getItem('uid');
     return this.firestore.collection(`users/${userId}/listas`).doc(gasolinera.iDEESS).set({
-      title: title
+      title: title,
+      uid: localStorage.getItem('uid')
     })
   }
 

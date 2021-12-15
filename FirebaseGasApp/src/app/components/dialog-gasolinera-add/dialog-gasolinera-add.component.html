@@ -1,1 +1,21 @@
-<p>dialog-gasolinera-add works!</p>
+<div class="contenedor1">
+    <mat-form-field appearance="fill">
+        <mat-label>Listas</mat-label>
+        <mat-select [(ngModel)]="selectedListId">
+          <mat-option *ngFor="let lista of listas" [value]="lista.id">
+            {{lista?.title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button (click)="addGasolineraToList()" mat-dialog-close>Añadir</button>
+  </div>
+  <div class="contenedor2">
+    <h3>Crear nueva lista: </h3>
+    <mat-label for="name">Nombre</mat-label>
+    <input matInput type="text" placeholder="Nombre de la lista" id="name" [(ngModel)]="lista.title" name="name">
+    <mat-label for="description">Descripción</mat-label>
+    <input matInput type="text" placeholder="Descripción de la lista" id="description" [(ngModel)]="newLista.description" name="description">
+    <br>
+  <button mat-button (click)="" type="submit">Crear</button>
+  </div>
+

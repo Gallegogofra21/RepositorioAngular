@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { listaEESSPrecio } from 'src/app/models/interfaces/gasolinera.interface';
 import { GasolineraFirebaseService } from 'src/app/services/gasolinera-firebase.service';
 import { GasolineraService } from 'src/app/services/gasolinera.service';
+import { DialogGasolineraAddComponent } from '../dialog-gasolinera-add/dialog-gasolinera-add.component';
 import { DialogGasolineraDetailComponent } from '../dialog-gasolinera-detail/dialog-gasolinera-detail.component';
 
 const COLLECTION_FAVORITES = 'favorites';
@@ -25,6 +26,14 @@ export class GasolineraItemComponent implements OnInit {
 
   openDialogDetailsData() {
     this.dialog.open(DialogGasolineraDetailComponent, {
+      height: '400px',
+      width: '300px',
+      data: { gasolinera: this.gasolineraInput}
+    })
+  }
+
+  openDialogAddToList() {
+    this.dialog.open(DialogGasolineraAddComponent, {
       height: '400px',
       width: '300px',
       data: { gasolinera: this.gasolineraInput}
