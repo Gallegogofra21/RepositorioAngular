@@ -16,4 +16,10 @@ export class ListaItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deletePlaylist(lista: Lista){
+    let idLista:string = `${lista.id}`;
+    this.listaService.deletePlaylist(idLista);
+
+  }
+
 }

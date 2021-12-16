@@ -43,5 +43,11 @@ export class ListaService {
   getGasolinerasFromLista(title: string): Observable<GasolineraFav[]> {
     let userId = localStorage.getItem('uid');
     return this.firestore.collection<GasolineraFav>(`users/${userId}/listas/${title}`).valueChanges();
-  }  
+  }
+  
+  deletePlaylist(docId: string){
+    let userId = localStorage.getItem('uid');
+    this.firestore.collection(`users/${userId}/listas`).doc(docId).delete();
+    this.firestore.collection(`users/${userId}/listas/${docId}/gasolineras`).doc(docId).delete();
+  }
 }

@@ -20,6 +20,7 @@ export class DialogGasolineraAddComponent implements OnInit {
   gasolineraResponse!: listaEESSPrecio;
   selectedListId!: string;
   listas!: Lista[];
+  listaNueva = new Lista();
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: DialogGasolineraData, private gasolineraService: GasolineraService, private listaService: ListaService) { }
 
@@ -36,6 +37,13 @@ export class DialogGasolineraAddComponent implements OnInit {
 
   addGasolineraToList() {
     this.listaService.addGasolineraToList(this.selectedListId, this.data.gasolinera);
+  }
+
+  addNewList() {
+    if(this.listaNueva.title){
+    this.listaService.saveList(this.listaNueva?.title, this.data.gasolinera);
+    this.listaService.addGasolineraToList(this.data.gasolinera.iDEESS, this.data.gasolinera);
+    }
   }
 
 
