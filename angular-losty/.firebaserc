@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "losty-34f5d": {
+      "hosting": {
+        "angular-losty": [
+          "losty-34f5d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "losty-34f5d"
+  }
+}
