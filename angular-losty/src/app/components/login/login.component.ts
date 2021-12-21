@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('name', res.user?.displayName? res.user?.displayName: '');
       localStorage.setItem('photo', res.user?.photoURL? res.user?.photoURL:'');
       localStorage.setItem('uid', res.user?.uid? res.user?.uid: '');
-      this.router.navigate(['/gasolineras']);
+      this.router.navigate(['/form']);
       
     });
   }

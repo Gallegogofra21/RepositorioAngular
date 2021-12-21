@@ -1,29 +1,39 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Categoria } from '../models/interfaces/categoria.interface';
-import { ObjetoPerdidoDto } from '../models/interfaces/objeto-perdido.interface';
+import { Objeto } from '../models/interfaces/objeto-perdido.interface';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObjetoPerdidoService {
 
-  listasRef!: AngularFirestoreCollection<ObjetoPerdidoDto>;
+  listasRef!: AngularFirestoreCollection<Objeto>;
 
   constructor(private firestore: AngularFirestore) {
     let userId = localStorage.getItem('uid');
-    this.listasRef = this.firestore.collection(`users/${userId}/objetosPerdidos`);
+    this.listasRef = this.firestore.collection(`objetosPerdidos`);
     console.log(this.listasRef);
    }
 
-   saveObjeto(name: string, descripcion: string, categoria: Categoria, localizacion: string, objeto: ObjetoPerdidoDto){
+   saveObjetoPerdido(name: string, descripcion: string, categoria: string, localizacion: string, objeto: Objeto){
      let userId = localStorage.getItem('uid');
-     return this.firestore.collection(`users/${userId}/objetosPerdidos`).doc(objeto.id).set({
-       name: name,
-       descripcion: descripcion,
-       categoria: categoria,
-       localizacion: localizacion,
-       uid: localStorage.getItem('uid')
-     })
+     return this.firestore.collection(`objetosPerdidos`).doc(objeto?.nombre).set({ 
+      nombre: name,
+      descripcion: descripcion,
+      categoria: categoria,
+      localizacion: localizacion
+     });
    }
+
+   saveObjetoEncontrado(name: string, descripcion: string, categoria: string, localizacion: string, objeto: Objeto){
+    let userId = localStorage.getItem('uid');
+    return this.firestore.collection(`objetosEncontrados`).doc(objeto?.nombre).set({ 
+     nombre: name,
+     descripcion: descripcion,
+     categoria: categoria,
+     localizacion: localizacion
+    });
+  }
 }

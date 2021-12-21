@@ -5,11 +5,9 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapaComponent } from './components/mapa/mapa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductoItemComponent } from './components/producto-item/producto-item.component';
-import { ProductoListComponent } from './components/producto-list/producto-list.component';
+
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -25,12 +23,14 @@ import { ObjetoPerdidoListComponent } from './components/objeto-perdido-list/obj
 import { ObjetoEncontradoItemComponent } from './components/objeto-encontrado-item/objeto-encontrado-item.component';
 import { ObjetoEncontradoListComponent } from './components/objeto-encontrado-list/objeto-encontrado-list.component';
 import { FormComponent } from './components/form/form.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapaComponent,
     LoginComponent,
+    ToolbarComponent,
     ObjetoPerdidoItemComponent,
     ObjetoPerdidoListComponent,
     ObjetoEncontradoItemComponent,
@@ -51,6 +51,7 @@ import { FormComponent } from './components/form/form.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
+    FlexLayoutModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

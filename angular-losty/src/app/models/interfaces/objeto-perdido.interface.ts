@@ -1,10 +1,7 @@
-import { Categoria } from "./categoria.interface";
-
-
-export class ObjetoPerdidoDto {
-    id!: string;
-    name!: string;
+export class Objeto {
+    nombre!: string;
     descripcion!: string;
-    categoria!: Categoria[];
+    categoria!: string;
     localizacion!: string;
 }
+

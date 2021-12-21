@@ -1,1 +1,52 @@
-<p>form works!</p>
+<div fxLayout="row" fxLayoutAlign="space-around center" class="space-top">
+
+<div fxLayout="column" fxLayoutAlign="space-around center" class="contenedor1">
+    <h3>Crear nuevo objeto perdido: </h3>
+    <mat-label for="nombre">Nombre del objeto:</mat-label><br>
+    <input matInput type="text" placeholder="Nombre del objeto" id="nombre" [(ngModel)]="objetoPerdidoNuevo.nombre" name="nombre"><br>
+    <mat-label for="descripcion">Descripción del objeto:</mat-label><br>
+    <input matInput type="text" placeholder="Descripcion del objeto" id="descripcion" [(ngModel)]="objetoPerdidoNuevo.descripcion" name="descripcion"><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Categorias</mat-label>
+      <mat-select [(ngModel)]="objetoPerdidoNuevo.categoria">
+        <mat-option *ngFor="let categoria of categoria" [value]="categoria">{{categoria}}</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+    <mat-label for="localizacion">Localización:</mat-label>
+    <input matInput type="text" placeholder="Localización" id="localizacion" [(ngModel)]="objetoPerdidoNuevo.localizacion" name="descripcion"><br>
+    <button mat-button (click)="addNewObjetoPerdido()">Añadir</button>
+</div>
+
+
+<div fxLayout="column" fxLayoutAlign="space-around center">
+<input type="text" [(ngModel)]="address" /> 
+<button (click)="searchAddress()">Localizar</button>
+<div *ngIf="apiLoaded | async">
+    <google-map
+      [center]="fundacionDonBoscoLatLng">
+      <map-marker
+              (mapDragend)="updateLocationMarker($event)"
+              [position]="fundacionDonBoscoLatLng"
+              [options]="markerOptions"></map-marker>
+    </google-map>
+  </div>
+</div>
+
+
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <h3>Crear nuevo objeto encontrado: </h3>
+  <mat-label for="nombre">Nombre del objeto:</mat-label><br>
+  <input matInput type="text" placeholder="Nombre del objeto" id="nombre" [(ngModel)]="objetoEncontradoNuevo.nombre" name="nombre"><br>
+  <mat-label for="descripcion">Descripción del objeto:</mat-label><br>
+  <input matInput type="text" placeholder="Descripcion del objeto" id="descripcion" [(ngModel)]="objetoEncontradoNuevo.descripcion" name="descripcion"><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Categorias</mat-label>
+    <mat-select [(ngModel)]="objetoEncontradoNuevo.categoria">
+      <mat-option *ngFor="let categoria of categoria" [value]="categoria">{{categoria}}</mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-label for="localizacion">Localización:</mat-label>
+  <input matInput type="text" placeholder="Localización" id="localizacion" [(ngModel)]="objetoEncontradoNuevo.localizacion" name="descripcion"><br>
+  <button mat-button (click)="addNewObjetoEncontrado()">Añadir</button>
+</div>
+</div>
