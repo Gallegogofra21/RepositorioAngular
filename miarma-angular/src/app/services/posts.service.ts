@@ -22,7 +22,12 @@ export class PostsService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  getPublicPosts(): Observable<PostResponse> {
+  getPublicPosts(limit: number): Observable<PostResponse> {
     return this.http.get<PostResponse>('http://localhost:8080/post/public', DEFAULT_HEADERS);
+  }
+
+  deletePost(id: number) {
+    let url = `${environment.apiBaseUrl}/post/${id}`
+    return this.http.delete<PostResponse>(url, DEFAULT_HEADERS)
   }
 }

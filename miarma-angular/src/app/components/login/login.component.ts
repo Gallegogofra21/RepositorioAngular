@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { AuthLoginDto } from 'src/app/models/dto/auth-dto';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,17 +11,20 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginDto = new AuthLoginDto();
+  
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
+
   doLogin() {
     this.authService.login(this.loginDto).subscribe(loginResult => {
       this.authService.setLocalRequestToken(loginResult.token);
-      alert(`Te has logueado y tu token es ${loginResult.token}`)
+      this.route.navigate(['/public-posts']);
     });
+    
   }
 
 }

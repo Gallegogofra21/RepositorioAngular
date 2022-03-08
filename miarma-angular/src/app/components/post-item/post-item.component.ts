@@ -18,8 +18,14 @@ export class PostItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getPostImageUrl(post: Post){
-    return `${post.contenidoOriginal}`;
+  getPostImageUrl(post: string){
+    return `${post.replace('10.0.2.2', 'localhost')}`;
+  }
+
+  deletePost(id: number) {
+    this.postService.deletePost(id).subscribe(p => {
+      location.reload();
+    });
   }
 
 }

@@ -4,6 +4,7 @@ import { LoginComponent } from '../components/login/login.component';
 import { PostsListComponent } from '../components/posts-list/posts-list.component';
 
 const routes: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'public-posts', component: PostsListComponent},
   {path: 'login', component: LoginComponent}
 ];

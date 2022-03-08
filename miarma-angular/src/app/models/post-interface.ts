@@ -31,7 +31,7 @@ export interface Sort2 {
 }
 
 export interface PostResponse {
-    results: Post[];
+    content: Post[];
     pageable: Pageable;
     last: boolean;
     totalPages: number;

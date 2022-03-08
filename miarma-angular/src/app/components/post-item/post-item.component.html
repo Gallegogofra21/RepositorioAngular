@@ -1,17 +1,13 @@
 <mat-card class="movie-card">
     <mat-card-content>
         <div class="movie-image">
-            <img [src]="getPostImageUrl(postInput)" height="200px" width="100%" />
+            <img [src]="getPostImageUrl(postInput.contenidoOriginal)" height="200px" width="100%" />
         </div>
         <h3 class="movie-title">{{postInput.titulo}}</h3>
-        <p class="movie-overview">{{postInput.userAvatar}}</p>
     </mat-card-content>
-    <!--<mat-card-actions align="end">
-        <button mat-icon-button (click)="onSubmit(postInput.id)" aria-label="Example icon button with a heart icon">
-            <mat-icon>favorite_border</mat-icon>
+    <mat-card-actions align="end">
+        <button mat-icon-button (click)="deletePost(postInput.id)" aria-label="Example icon button with a heart icon">
+            <mat-icon>delete</mat-icon>
         </button>
-        <button mat-icon-button (click)="addToPlayList(postInput?.id) " aria-label="Example icon button with a heart icon">
-            <mat-icon>playlist_add</mat-icon>
-        </button>
-    </mat-card-actions>-->
+    </mat-card-actions>
 </mat-card>

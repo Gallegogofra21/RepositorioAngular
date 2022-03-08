@@ -10,6 +10,7 @@ import { PostsService } from 'src/app/services/posts.service';
 export class PostsListComponent implements OnInit {
 
   publicPosts!: Post[];
+  postNumberSelected = '50';
   
 
   constructor(private postService: PostsService) { }
@@ -19,9 +20,9 @@ export class PostsListComponent implements OnInit {
   }
   
   getPublicPost() {
-    this.postService.getPublicPosts().subscribe(publicPostResponse => {
-      this.publicPosts = publicPostResponse.results;
-      console.log(publicPostResponse.results);
+    this.postService.getPublicPosts(parseInt(this.postNumberSelected)).subscribe(publicPostResponse => {
+      this.publicPosts = publicPostResponse.content;
+      console.log(publicPostResponse.content);
     })
   }
 
